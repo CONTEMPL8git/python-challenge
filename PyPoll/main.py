@@ -42,10 +42,14 @@ with open (output_path, "w") as file:
     for candidate in candidate_votes:
         votes = candidate_votes.get (candidate)
         percent = votes / counter * 100
-        candidate_output = f"{candidate}: {percent:.3f}% ({votes})\n"
+        candidate_output = (
+            f"{candidate}: {percent:.3f}% ({votes})"
+            "\n"
+        )
         print(candidate_output)
         
         file.write(candidate_output)
     print("--------------------------------\n")
     print("\n")
+    
     
