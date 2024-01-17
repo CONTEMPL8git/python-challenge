@@ -52,34 +52,36 @@ with open(CSV_PATH) as csvfile:
 #create average variable
 average = agg_cur_change / (counter - 1)
 
-#print to terminal
-print("Financial Analysis")
-print("")
-print("--------------------------------")
-print("")
-print(f"Total Months: {counter}")
-print("")
-print(f"Total: ${PandL_Total}")
-print("")
-print(f"Average Change: $ {average: .2f}")
-print("")
-print(f"Greatest Increase in Profits: {date} (${Greatest_Increase})")
-print("")
-print(f"Greatest Decrease in Profits: {date} (${Greatest_Increase})")
+#now print to terminal and print to new text file
+output_path = os.path.join('.', 'analysis', "output.txt")
+with open (output_path, "w") as file:
+    Financial_Analysis = (
+        "Financial Analysis\n"
+        "\n"
+        "--------------------------------\n"
+        "\n"
+        f"Total Months: {counter}\n"
+        "\n"
+        f"Total: ${PandL_Total}\n"
+        "\n"
+    )
 
-#now print to new text file
-with open("output.txt", "a") as f:
-    print("Financial Analysis", file=f)
-    print("", file=f)
-    print("--------------------------------", file=f)
-    print("", file=f)
-    print(f"Total Months: {counter}", file=f)
-    print("", file=f)
-    print(f"Total: ${PandL_Total}", file=f)
+    print(Financial_Analysis)
+
+    file.write(Financial_Analysis)
+
     average = agg_cur_change / (counter - 1)
-    print("", file=f)
-    print(f"Average Change: $ {average: .2f}", file=f)
-    print("", file=f)
-    print(f"Greatest Increase in Profits: {date} (${Greatest_Increase})", file=f)
-    print("", file=f)
-    print(f"Greatest Decrease in Profits: {date} (${Greatest_Increase})", file=f)
+    Average_Change = (
+        f"Average Change: ${average: .2f}\n"
+        "\n"
+    )
+    print(Average_Change)
+    file.write(Average_Change)
+    
+    greatest_IandD = (
+        f"Greatest Increase in Profits: {date} (${Greatest_Increase})\n"
+        "\n"
+        f"Greatest Decrease in Profits: {date} (${Greatest_Increase})\n"
+    )
+    print(greatest_IandD)
+    file.write(greatest_IandD)

@@ -12,6 +12,9 @@ Python challenge uses python methods and functions etc. to analyze and calculate
 
 ## Sources
 
+Best way to print to a text file in specific folder:
+Sharon Colson, a tutor
+
 How to print to a text file:
 https://stackoverflow.com/questions/36571560/directing-print-output-to-a-txt-file
 

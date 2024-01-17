@@ -17,7 +17,6 @@ with open(CSV_PATH) as csvfile:
     candidate_votes = {}
         # Read each row of data after the header
     for row in csvreader:
-        #type(row), row)
         counter = 1 + counter 
         candidate = row[2]
         if candidate not in candidates:
